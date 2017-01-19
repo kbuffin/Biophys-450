@@ -15,15 +15,10 @@ summary(lm.a)
 
 ###Define unknown quantities of independent variable
 unkx <- c()
-###Estimate unknown dependent variables and give confidence intervals (error bounds)
-predict(lm.a,data.frame(x=unkx), level = 0.90, interval = "confidence")
+###Estimate unknown dependent variables and give standard error of estimations
+predict(lm.a,data.frame(x=unkx), se.fit = TRUE)
 ###Save estimates and error bounds as a table
-unktable <- predict(lm.a,data.frame(x=unkx), level = 0.90, interval = "confidence")
-### make into data.frame
-unkframe <- data.frame(unktable)
-### Generate absolute value of error using lower bounds and estimate
-error <- (unkframe$fit - unkframe$lwr)
-error
+
 
 
 
@@ -44,7 +39,7 @@ summary(lm.a)
 ###Define unknown quantities of independent variable
 unkx <- c(0.0042, 0.357533333, 0.4015, 0.193033333)
 
-###Estimate unknown dependent variables and give confidence intervals (error bounds)
+###Estimate unknown dependent variables and give standard error of estimations
 predict(lm.a,data.frame(x=unkx), se.fit = TRUE)
 
 
@@ -65,7 +60,7 @@ summary(lm.a2)
 
 ###Define unknown quantities of independent variable
 unkx2 <- c(0.6589, 1.221, 5.405166667)
-###Estimate unknown dependent variables and give confidence intervals (error bounds)
+###Estimate unknown dependent variables and give standard error of estimations
 predict(lm.a2,data.frame(x2=unkx2), se.fit = TRUE)
 
 
@@ -86,5 +81,5 @@ summary(lm.a3)
 
 ###Define unknown quantities of independent variable
 unkx3 <- c(0.184766667, 0.2951, 0.881433333)
-###Estimate unknown dependent variables and give confidence intervals (error bounds)
+###Estimate unknown dependent variables and give standard error of estimations
 predict(lm.a3,data.frame(x3=unkx3), se.fit = TRUE)
